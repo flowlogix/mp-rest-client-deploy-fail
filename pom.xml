@@ -12,20 +12,15 @@
     <parent>
         <groupId>com.flowlogix</groupId>
         <artifactId>payara-pom</artifactId>
-        <version>68</version>
+        <version>70</version>
     </parent>
 
     <properties>
         <!-- Override target java release -->
-        <!-- <maven.compiler.release>25</maven.compiler.release> -->
-        <flowlogix.depchain.version>80</flowlogix.depchain.version>
-        <flowlogix.version>10</flowlogix.version>
-        <arquillian.graphene.version>3.0.0-alpha.4</arquillian.graphene.version>
-        <arquillian.payara.version>3.1</arquillian.payara.version>
+        <maven.compiler.release>17</maven.compiler.release>
         <checkstyle.suppressionsLocation>${maven.multiModuleProjectDirectory}/src/checkstyle/suppressions.xml</checkstyle.suppressionsLocation>
         <checkstyle.headerLocation>${maven.multiModuleProjectDirectory}/src/checkstyle/apache-header.txt</checkstyle.headerLocation>
-        <!-- Turn off maven build cache -->
-        <!-- <maven.build.cache.enabled>false</maven.build.cache.enabled> -->
+        <maven.build.cache.enabled>false</maven.build.cache.enabled>
         <!-- Turn on console logging for tests -->
         <test.redirect.to.file>false</test.redirect.to.file>
     </properties>
@@ -38,67 +33,11 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
+            <groupId>org.eclipse.microprofile</groupId>
+            <artifactId>microprofile</artifactId>
+            <version>6.1</version>
             <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.flowlogix.depchain</groupId>
-            <artifactId>integration-test</artifactId>
-            <version>${flowlogix.depchain.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.arquillian.graphene</groupId>
-            <artifactId>graphene-webdriver</artifactId>
-            <version>${arquillian.graphene.version}</version>
-            <scope>test</scope>
             <type>pom</type>
         </dependency>
-        <dependency>
-            <groupId>fish.payara.arquillian</groupId>
-            <artifactId>arquillian-payara-server-remote</artifactId>
-            <version>${arquillian.payara.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-jdk14</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>org.eclipse.persistence.jpa.modelgen.processor</artifactId>
-            <version>4.0.7</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.flowlogix</groupId>
-            <artifactId>flowlogix-jee</artifactId>
-            <version>${flowlogix.version}</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.flowlogix</groupId>
-                <artifactId>flowlogix-bom</artifactId>
-                <version>${flowlogix.version}</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>
-            <dependency>
-                <groupId>org.seleniumhq.selenium</groupId>
-                <artifactId>selenium-bom</artifactId>
-                <version>4.35.0</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 </project>
